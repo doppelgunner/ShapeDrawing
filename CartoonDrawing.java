@@ -61,7 +61,7 @@ public class CartoonDrawing extends Frame {
 			int x = 30;
 			int y = 50;
 			g2d.drawString("currentColor: " + currentData.color,x, y);
-			g2d.drawString("black - 1, red - 2, blue - 3, white - 4", x, y += 15);
+			g2d.drawString("black - 1, red - 2, blue - 3, white - 4, gray - 5", x, y += 15);
 			g2d.drawString("currentIsDraw: " + currentData.isDraw + " [F]", x, y += 15);
 			g2d.drawString("closeGap: " + currentData.closeGap + " [C]", x, y += 15);
 			g2d.drawString("save: [S], load: [L], hide image: [H], undo: [Z], hide drawing: [J]", x, y += 15);
@@ -168,6 +168,8 @@ public class CartoonDrawing extends Frame {
 				currentData.color = Color.blue;
 			} else if (e.getKeyCode() == KeyEvent.VK_4) {
 				currentData.color = Color.white;
+			} else if (e.getKeyCode() == KeyEvent.VK_5) {
+				currentData.color = Color.gray;
 			} else if (e.getKeyCode() == KeyEvent.VK_C) {
 				currentData.closeGap = !currentData.closeGap;
 			} else if (e.getKeyCode() == KeyEvent.VK_Q) {
@@ -336,7 +338,7 @@ public class CartoonDrawing extends Frame {
 	}
 	
 	public static void main(String[] args) {
-		String spidey = "images/self_portrait.jpg";
+		String spidey = "images/bike.jpg";
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
 		app.setImage(spidey);
 		
