@@ -5,10 +5,14 @@ A simple drawing program using shapes from awt package
 * **Compile** - javac CartoonDrawing.java
 * **Run** - java CartoonDrawing
 
-##Sample (original, sample v1 drawing, sample v2 drawing)
-![Original spiderman](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/spidey.png)
+##Samples (original(far left) -  then drawings)
+![original spiderman](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/spidey.png)
 ![sample v1 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v1.PNG)
 ![sample v2 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v2.PNG)
+![original bike](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike.jpg)
+![sample bike drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike_drawing.PNG)
+
+
 
 ##Important Controls
 * **[F]** - toggle draw or fill shape
