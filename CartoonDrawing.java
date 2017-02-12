@@ -336,7 +336,7 @@ public class CartoonDrawing extends Frame {
 	}
 	
 	public static void main(String[] args) {
-		String spidey = "images/spidey.png";
+		String spidey = "images/self_portrait.jpg";
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
 		app.setImage(spidey);
 		
