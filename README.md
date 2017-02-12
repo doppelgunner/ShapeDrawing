@@ -1,6 +1,11 @@
 # ShapeDrawing
 A simple drawing program using shapes from awt package
 
+##Sample
+![Original spiderman](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/spidey.png)
+![v1 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v1.PNG)
+![v2 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v2.PNG)
+
 ##Important Controls
 * **[F]** - toggle draw or fill shape
 * **[H]** - toggle hide or show image
