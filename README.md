@@ -1,6 +1,10 @@
 # ShapeDrawing
 A simple drawing program using shapes from awt package
 
+##Run & Compile
+* **Compile** - javac CartoonDrawing.java
+* **Run** - java CartoonDrawing
+
 ##Sample (original, sample v1 drawing, sample v2 drawing)
 ![Original spiderman](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/spidey.png)
 ![sample v1 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v1.PNG)
