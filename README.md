@@ -10,7 +10,7 @@ A simple drawing program using shapes from awt package
 ![sample v1 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v1.PNG)
 ![sample v2 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v2.PNG)
 ![original bike](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike.jpg)
-![sample bike drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike_drawing.PNG)
+![sample bike drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike_drawing_sample.PNG)
 
 
 
