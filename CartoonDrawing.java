@@ -10,6 +10,15 @@ import javax.swing.*;
 
 public class CartoonDrawing extends Frame {
 	
+	private Color[] colors = {
+		Color.black, Color.red, Color.blue, Color.white, Color.gray,
+		
+		new Color(122,97,67), new Color(176,143,112), new Color(178,139,122),
+		new Color(103,65,44), new Color(68,27,31), new Color(138,67,71),
+		new Color(159,158,156),
+	};
+	private int colorIndex;
+	
 	private static final Color DRAWING_COLOR = new Color(255, 100, 200);
 	private static final Color FINAL_DRAWING_COLOR = Color.green;
 	
@@ -61,7 +70,7 @@ public class CartoonDrawing extends Frame {
 			int x = 30;
 			int y = 50;
 			g2d.drawString("currentColor: " + currentData.color,x, y);
-			g2d.drawString("black - 1, red - 2, blue - 3, white - 4, gray - 5", x, y += 15);
+			g2d.drawString("[A] to change color, or 1 to 5 important colors (black,red,blue,white,gray)", x, y += 15);
 			g2d.drawString("currentIsDraw: " + currentData.isDraw + " [F]", x, y += 15);
 			g2d.drawString("closeGap: " + currentData.closeGap + " [C]", x, y += 15);
 			g2d.drawString("save: [S], load: [L], hide image: [H], undo: [Z], hide drawing: [J]", x, y += 15);
@@ -160,16 +169,6 @@ public class CartoonDrawing extends Frame {
 				save();
 			} else if (e.getKeyCode() == KeyEvent.VK_F) { // Toggle Draw / Fill
 				currentData.isDraw = !currentData.isDraw;
-			} else if (e.getKeyCode() == KeyEvent.VK_1) {
-				currentData.color = Color.black;
-			} else if (e.getKeyCode() == KeyEvent.VK_2) {
-				currentData.color = Color.red;
-			} else if (e.getKeyCode() == KeyEvent.VK_3) {
-				currentData.color = Color.blue;
-			} else if (e.getKeyCode() == KeyEvent.VK_4) {
-				currentData.color = Color.white;
-			} else if (e.getKeyCode() == KeyEvent.VK_5) {
-				currentData.color = Color.gray;
 			} else if (e.getKeyCode() == KeyEvent.VK_C) {
 				currentData.closeGap = !currentData.closeGap;
 			} else if (e.getKeyCode() == KeyEvent.VK_Q) {
@@ -189,10 +188,27 @@ public class CartoonDrawing extends Frame {
 				}
 			} else if (e.getKeyCode() == KeyEvent.VK_I) {
 				hideInfo = !hideInfo;
+			} else if (e.getKeyCode() == KeyEvent.VK_1) {
+				updateColor(0);;
+			} else if (e.getKeyCode() == KeyEvent.VK_2) {
+				updateColor(1);
+			} else if (e.getKeyCode() == KeyEvent.VK_3) {
+				updateColor(2);
+			} else if (e.getKeyCode() == KeyEvent.VK_4) {
+				updateColor(3);
+			} else if (e.getKeyCode() == KeyEvent.VK_5) {
+				updateColor(4);
+			} else if (e.getKeyCode() == KeyEvent.VK_A) {
+				updateColor(((++colorIndex) % colors.length));
 			}
 			
 			repaint();
 		}
+	}
+	
+	private void updateColor(int n) {
+		colorIndex = n;
+		currentData.color = colors[colorIndex];
 	}
 	
 	private class MyMouseAdapter extends MouseAdapter {
@@ -338,9 +354,9 @@ public class CartoonDrawing extends Frame {
 	}
 	
 	public static void main(String[] args) {
-		String spidey = "images/bike.jpg";
+		String imagePath = "images/self_portrait.jpg";
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
-		app.setImage(spidey);
+		app.setImage(imagePath);
 		
 	}
 }
