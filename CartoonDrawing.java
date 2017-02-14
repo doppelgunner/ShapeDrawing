@@ -13,9 +13,8 @@ public class CartoonDrawing extends Frame {
 	private Color[] colors = {
 		Color.black, Color.red, Color.blue, Color.white, Color.gray,
 		
-		new Color(122,97,67), new Color(176,143,112), new Color(178,139,122),
-		new Color(103,65,44), new Color(68,27,31), new Color(138,67,71),
-		new Color(159,158,156),
+		new Color(242,229,177), new Color(255,204,193), new Color(62,62,60),
+		new Color(49,147,204), new Color(142,38,46), new Color(248,198,79)
 	};
 	private int colorIndex;
 	
@@ -354,7 +353,7 @@ public class CartoonDrawing extends Frame {
 	}
 	
 	public static void main(String[] args) {
-		String imagePath = "images/self_portrait.jpg";
+		String imagePath = "images/VSpecial.jpg";
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
 		app.setImage(imagePath);
 		
