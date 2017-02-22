@@ -8,7 +8,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
-public class CartoonDrawing extends Frame {
+public class CartoonDrawing extends JFrame {
 	
 	private Color[] colors = {
 		Color.black, Color.red, Color.blue, Color.white, Color.gray,
@@ -51,52 +51,68 @@ public class CartoonDrawing extends Frame {
 	public int gpPointChoice = 0;
 	public int choice = 0;
 	
+	public void repaintFrame() {
+		validate();
+		repaint();
+	}
+	
+	public class MyPanel extends JPanel {
+		
+		public MyPanel() {
+			addMouseMotionListener(new MyMouseAdapter());
+			addMouseListener(new MyMouseAdapter());
+			addMouseWheelListener(new MyMouseWheelListener());
+			setBackground(Color.white);
+		}
+		
+		@Override
+		public void paint(Graphics g) {
+			super.paint(g);
+			Graphics2D g2d = (Graphics2D) g;
+			g2d.setColor(Color.black);
+			
+			if (!hideInfo) {
+				int x = 30;
+				int y = 50;
+				g2d.drawString("currentColor: " + currentData.color,x, y);
+				g2d.drawString("[A] to change color, or 1 to 5 important colors (black,red,blue,white,gray)", x, y += 15);
+				g2d.drawString("currentIsDraw: " + currentData.isDraw + " [F]", x, y += 15);
+				g2d.drawString("closeGap: " + currentData.closeGap + " [C]", x, y += 15);
+				g2d.drawString("save: [S], load: [L], hide image: [H], undo: [Z], hide drawing: [J]", x, y += 15);
+				g2d.drawString("[Q] change shape, current: " + shapeChoices[choice].shapeName(), x, y += 15);
+				g2d.drawString("mouse wheel to change stroke: " + currentData.stroke, x, y += 15);
+				g2d.drawString("draw point: L-click[start], M-click[ctrlPoint1], R-click[ctrlPoint2]",x, y += 15);
+				if (currentData instanceof GPData) {
+					g2d.drawString("gpData: " + currentGPType, x, y+=15);
+				}
+			}
+			
+			
+			if (!hideDrawing) {
+				//draw shapes
+				shapeDataList.draw(g2d);
+				
+				//draw
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f));
+				currentData.draw(g2d);
+			}
+			
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+			if (!hideImage) { //[H] - hide image?
+				if (buffImage != null) {
+					g2d.drawImage(buffImage,200,200,null);
+				}
+			}
+		}
+	}
+	
 	public void setImage(String path) {
 		try {
 			buffImage = ImageIO.read(new File(path));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		repaint();
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setColor(Color.black);
-		
-		if (!hideInfo) {
-			int x = 30;
-			int y = 50;
-			g2d.drawString("currentColor: " + currentData.color,x, y);
-			g2d.drawString("[A] to change color, or 1 to 5 important colors (black,red,blue,white,gray)", x, y += 15);
-			g2d.drawString("currentIsDraw: " + currentData.isDraw + " [F]", x, y += 15);
-			g2d.drawString("closeGap: " + currentData.closeGap + " [C]", x, y += 15);
-			g2d.drawString("save: [S], load: [L], hide image: [H], undo: [Z], hide drawing: [J]", x, y += 15);
-			g2d.drawString("[Q] change shape, current: " + shapeChoices[choice].shapeName(), x, y += 15);
-			g2d.drawString("mouse wheel to change stroke: " + currentData.stroke, x, y += 15);
-			g2d.drawString("draw point: L-click[start], M-click[ctrlPoint1], R-click[ctrlPoint2]",x, y += 15);
-			if (currentData instanceof GPData) {
-				g2d.drawString("gpData: " + currentGPType, x, y+=15);
-			}
-		}
-		
-		
-		if (!hideDrawing) {
-			//draw shapes
-			shapeDataList.draw(g2d);
-			
-			//draw
-			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f));
-			currentData.draw(g2d);
-		}
-		
-		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
-		if (!hideImage) { //[H] - hide image?
-			if (buffImage != null) {
-				g2d.drawImage(buffImage,200,200,null);
-			}
-		}
+		repaintFrame();
 	}
 	
 	public void updateShapeData() {
@@ -112,7 +128,7 @@ public class CartoonDrawing extends Frame {
 			currentData.update(startPoint,currentPoint);
 		}
 		
-		repaint();
+		repaintFrame();
 	}
 	
 	public void load() {
@@ -150,13 +166,13 @@ public class CartoonDrawing extends Frame {
 				}
 				
 				
-				repaint();
+				repaintFrame();
 				
 			} else if (e.getKeyCode() == KeyEvent.VK_Z) {
 				if (currentData instanceof GPData) {
 					GPData gpData = (GPData) currentData;
 					gpData.removeLast();
-					repaint();
+					repaintFrame();
 				} else {
 					shapeDataList.removeLast();
 				}
@@ -183,7 +199,7 @@ public class CartoonDrawing extends Frame {
 			} else if (e.getKeyCode() == KeyEvent.VK_N) {
 				if (currentData instanceof GPData) {
 					updateShapeData();
-					repaint();
+					repaintFrame();
 				}
 			} else if (e.getKeyCode() == KeyEvent.VK_I) {
 				hideInfo = !hideInfo;
@@ -201,7 +217,7 @@ public class CartoonDrawing extends Frame {
 				updateColor(((++colorIndex) % colors.length));
 			}
 			
-			repaint();
+			repaintFrame();
 		}
 	}
 	
@@ -236,7 +252,7 @@ public class CartoonDrawing extends Frame {
 					gpPoint.ctrlPoint2 = ctrlPoint2;
 				}
 				
-				repaint();
+				repaintFrame();
 			} 
 			
 		}
@@ -307,7 +323,7 @@ public class CartoonDrawing extends Frame {
 			}
 			
 			currentData.stroke = newStroke;
-			repaint();
+			repaintFrame();
 		}
 	}
 	
@@ -336,15 +352,15 @@ public class CartoonDrawing extends Frame {
 	
 	public CartoonDrawing(String title, int width, int height) {
 		super(title);
+		pack();
 		setSize(width,height);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		addWindowListener(new CustomWindowListener());
-		addMouseMotionListener(new MyMouseAdapter());
-		addMouseListener(new MyMouseAdapter());
-		addMouseWheelListener(new MyMouseWheelListener());
-		
 		addKeyListener(new MyKeyAdapter());
+		getContentPane().add(new MyPanel());
+		
+
 	}
 	
 	public CartoonDrawing(String title) {
@@ -353,7 +369,7 @@ public class CartoonDrawing extends Frame {
 	}
 	
 	public static void main(String[] args) {
-		String imagePath = "images/VSpecial.jpg";
+		String imagePath = "images/bike.jpg";
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
 		app.setImage(imagePath);
 		
