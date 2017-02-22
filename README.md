@@ -15,6 +15,8 @@ Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 ![sample bike drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike_drawing_sample.PNG)
 ![self portrait](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/self_portrait.jpg)
 ![sample self portrait drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/self_portrait_drawing.PNG)
+![ass in mousepad](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/VSpecial.jpg)
+![ass in mousepad drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/VSpecial_drawing.PNG)
 
 
 
