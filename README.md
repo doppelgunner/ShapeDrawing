@@ -3,11 +3,11 @@ A simple drawing program using shapes from awt package
 
 Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 
-##Run & Compile
+## Run & Compile
 * **Compile** - javac CartoonDrawing.java
 * **Run** - java CartoonDrawing
 
-##Samples (original(far left) -  then drawings)
+## Samples (original(far left) -  then drawings)
 ![original spiderman](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/spidey.png)
 ![sample v1 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v1.PNG)
 ![sample v2 spiderman drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v2.PNG)
@@ -18,7 +18,7 @@ Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 
 
 
-##Important Controls
+## Important Controls
 * **[F]** - toggle draw or fill shape
 * **[H]** - toggle hide or show image
 * **[J]** - toggle hide or show drawing
