@@ -41,6 +41,8 @@ public class CartoonDrawing extends JFrame {
 	
 	private String filePath = "draw.txt";
 	
+	private MyPanel myPanel;
+	
 	public static final ShapeData[] shapeChoices = {
 		new RectData(), new LineData(), new EllipseData(), new QuadCurveData(), new CubicCurveData(), new GPData()
 	};
@@ -215,7 +217,13 @@ public class CartoonDrawing extends JFrame {
 				updateColor(4);
 			} else if (e.getKeyCode() == KeyEvent.VK_A) {
 				updateColor(((++colorIndex) % colors.length));
-			}
+			} else if (e.getKeyCode() == KeyEvent.VK_P) {
+				try {
+					shapeDataList.save(new BufferedImage(myPanel.getWidth(), myPanel.getHeight(), BufferedImage.TYPE_INT_ARGB));
+				} catch (Exception ex) {
+					
+				}
+			} 
 			
 			repaintFrame();
 		}
@@ -358,7 +366,8 @@ public class CartoonDrawing extends JFrame {
 		setVisible(true);
 		addWindowListener(new CustomWindowListener());
 		addKeyListener(new MyKeyAdapter());
-		getContentPane().add(new MyPanel());
+		myPanel = new MyPanel();
+		getContentPane().add(myPanel);
 		
 
 	}
@@ -369,7 +378,7 @@ public class CartoonDrawing extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		String imagePath = "images/bike.jpg";
+		String imagePath = "images/self_portrait.jpg";
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
 		app.setImage(imagePath);
 		

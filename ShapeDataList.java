@@ -2,7 +2,8 @@ import java.util.*;
 import java.awt.geom.*;
 import java.awt.*;
 import java.io.*;
-
+import java.awt.image.*;
+import javax.imageio.*;
 public class ShapeDataList implements Serializable {
 	static final long serialVersionUID = 1L;
 	
@@ -31,6 +32,15 @@ public class ShapeDataList implements Serializable {
 			ShapeData shapeData = shapeDataList.get(i);
 			shapeData.draw(g2d);
 		}
+	}
+	
+	public void save(BufferedImage bImage) throws Exception {
+		System.out.println("saving image...");
+		Graphics g = bImage.getGraphics();
+		draw((Graphics2D)g);
+		File outputfile = new File(System.nanoTime() + ".png");
+		ImageIO.write(bImage, "png", outputfile);
+		System.out.println("saved at: " + outputfile.toString());
 	}
 	
 	public void removeLast() {
