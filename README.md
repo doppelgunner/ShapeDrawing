@@ -31,4 +31,6 @@ Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 * **[SPACE]** - to add shape to memory
 * **[S]** - save current work(memory) to filepath - replace previous
 * **[L]** - load from file path previous work
+* **[P]** - save to png image format
+
 
