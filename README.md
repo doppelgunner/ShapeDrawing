@@ -16,7 +16,11 @@ Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 ![ass in mousepad](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/VSpecial.jpg)
 ![ass in mousepad drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/VSpecial_drawing.PNG)
 
-
+## Samples SVG types using ImageTracer
+![sample v1 spiderman svg drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v1.svg)
+![sample v2 spiderman svg drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/v2.svg)
+![sample bike svg drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/bike_drawing_sample.svg)
+![ass in mousepad svg drawing](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/VSpecial_drawing.svg)
 
 ## Important Controls
 * **[F]** - toggle draw or fill shape
