@@ -4,8 +4,8 @@ A simple drawing program using shapes from awt package
 Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 
 ##Run & Compile
-* **Compile** - javac CartoonDrawing.java
-* **Run** - java CartoonDrawing
+* **Compile** - javac -cp ".;ImageTracer.jar;" CartoonDrawing.java
+* **Run** - java -cp ".;ImageTracer.jar;" CartoonDrawing
 
 ##Samples (original(far left) -  then drawings)
 ![original spiderman](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/spidey.png)

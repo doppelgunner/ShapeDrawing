@@ -223,6 +223,12 @@ public class CartoonDrawing extends JFrame {
 				} catch (Exception ex) {
 					
 				}
+			} else if (e.getKeyCode() == KeyEvent.VK_O) {
+				try {
+					shapeDataList.saveSVG(new BufferedImage(myPanel.getWidth(), myPanel.getHeight(), BufferedImage.TYPE_INT_ARGB));
+				} catch (Exception ex) {
+					
+				}
 			} 
 			
 			repaintFrame();

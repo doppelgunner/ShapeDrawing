@@ -4,6 +4,9 @@ import java.awt.*;
 import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
+
+import jankovicsandras.imagetracer.ImageTracer;
+
 public class ShapeDataList implements Serializable {
 	static final long serialVersionUID = 1L;
 	
@@ -38,9 +41,24 @@ public class ShapeDataList implements Serializable {
 		System.out.println("saving image...");
 		Graphics g = bImage.getGraphics();
 		draw((Graphics2D)g);
-		File outputfile = new File(System.nanoTime() + ".png");
+		
+		String filename = System.nanoTime() + ".png";
+		File outputfile = new File(filename);
 		ImageIO.write(bImage, "png", outputfile);
 		System.out.println("saved at: " + outputfile.toString());
+		
+	}
+	
+	public void saveSVG(BufferedImage bImage) throws Exception {
+		System.out.println("saving image...");
+		Graphics g = bImage.getGraphics();
+		draw((Graphics2D)g);
+		String filename = System.nanoTime() + ".svg";
+		
+		String svgString = ImageTracer.imageToSVG(bImage, null, null);
+		ImageTracer.saveString(filename,svgString);
+		
+		System.out.println("saved at: " + filename);
 	}
 	
 	public void removeLast() {
