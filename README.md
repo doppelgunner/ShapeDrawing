@@ -32,5 +32,9 @@ Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 * **[S]** - save current work(memory) to filepath - replace previous
 * **[L]** - load from file path previous work
 * **[P]** - save to png image format
+* **[O]** - save to svg image format(may produce low quality results)
+
+## References
+* [ImageTracer by jankovicsandras](https://github.com/doppelgunner/ShapeDrawing/blob/master/images/VSpecial_drawing.PNG)
 
 
