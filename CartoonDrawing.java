@@ -39,7 +39,9 @@ public class CartoonDrawing extends JFrame {
 	private ShapeData currentData = new RectData();
 	private ShapeDataList shapeDataList = new ShapeDataList();
 	
-	private String filePath = "draw.txt";
+	private static String filePath;
+	private static String dataPath;
+	private static String imagePath;
 	
 	private MyPanel myPanel;
 	
@@ -383,10 +385,13 @@ public class CartoonDrawing extends JFrame {
 		load();
 	}
 	
-	public static void main(String[] args) {
-		String imagePath = "images/self_portrait.jpg";
+	public static void main(String[] args) throws Exception {	
+		dataPath = "data.txt";
+		Scanner scanner = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new FileReader(dataPath));
+		filePath = br.readLine().trim();
+		imagePath = br.readLine().trim();
 		CartoonDrawing app = new CartoonDrawing("Cartoon Drawing");
 		app.setImage(imagePath);
-		
 	}
 }

@@ -1,0 +1,5 @@
+save/draw.txt
+images/spidey.png
+
+1st line is for drawing data - save and load destination
+2nd line is for tracing - reference image
