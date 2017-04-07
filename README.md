@@ -3,7 +3,7 @@ A simple drawing program using shapes from awt package
 
 Watch [youtube demo](https://youtu.be/oTU7bWZ3zPg)
 
-##Run & Compile
+## Run & Compile
 * **Compile** - javac -cp ".;ImageTracer.jar;" CartoonDrawing.java
 * **Run** - java -cp ".;ImageTracer.jar;" CartoonDrawing
 * **Compile jar (sample)** - jar cvfm CartoonDrawing.jar Manifest.txt -C:/Users/username/Desktop/CartoonDrawing/ .
